@@ -2,6 +2,11 @@
 name = "derive-insert"
 version = "0.1.0"
 edition = "2021"
+license-file = "LICENSE"
+description = "A simple `GetOrInsert` trait for enums and its derive macro."
+readme = "README.md"
+repository = "https://github.com/wada314/derive-insert"
+keywords = ["derive"]
 
 [dependencies]
 derive-insert-impl = { path = "impl" }
