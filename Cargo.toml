@@ -9,7 +9,7 @@ repository = "https://github.com/wada314/derive-insert"
 keywords = ["derive"]
 
 [dependencies]
-derive-insert-impl = "=0.1.1"
+derive-insert-impl = "0.1.0"
 
 [workspace]
 members = ["impl"]
