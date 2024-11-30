@@ -2,7 +2,7 @@
 name = "derive-insert-impl"
 version = "0.1.0"
 edition = "2021"
-license-file = "../../LICENSE"
+license-file = "LICENSE"
 description = "An internal crate used for derive-insert crate."
 readme = "README.md"
 repository = "https://github.com/wada314/derive-insert"
