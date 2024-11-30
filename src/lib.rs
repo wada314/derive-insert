@@ -14,7 +14,7 @@
 
 pub use ::derive_insert_impl::GetOrInsert;
 
-#[doc = include_str!("../README.md")]
+#[cfg_attr(not(doctest), doc = include_str!("../README.md"))]
 pub trait GetOrInsert<T> {
     // Required methods
     fn insert(&mut self, value: T) -> &mut T;

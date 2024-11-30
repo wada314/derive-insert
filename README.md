@@ -25,12 +25,6 @@ pub enum Foo {
 The following code will be generated:
 
 ```rust
-# use ::derive_insert::GetOrInsert;
-# pub enum Foo {
-#    Bar(i32),
-#    Baz(String),
-#    AnEmptyVariant,
-# }
 impl GetOrInsert<i32> for Foo {
     fn insert(&mut self, value: i32) -> &mut i32 {
         *self = Self::Bar(value);
@@ -48,8 +42,6 @@ impl GetOrInsert<i32> for Foo {
 }
 impl GetOrInsert<String> for Foo {
     // ... Same for Foo::Baz
-    # fn insert(&mut self, value: String) -> &mut String { todo!() }
-    # fn get_or_insert_with<F: FnOnce() -> String>(&mut self, f: F) -> &mut String { todo!() }
 }
 // Foo::AnEmptyVariant is skipped because it's an unit variant
 ```
