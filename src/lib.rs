@@ -14,10 +14,13 @@
 
 pub use ::derive_insert_impl::GetOrInsert;
 
-/// A trait for types that support `.insert(x)` method which returns the reference to the inserted value.
+/// A trait for enum types that support `.insert(x)` method which sets the enum variant to
+/// something unique for `x` and returns a mutable reference to the value.
 /// The most trivial example is `Option<T>`.
-/// This operation is somehow not trivial to write in Rust. `#[derive(GetOrInsert)]` macro provides
-/// an implementation for enums with every variant having a single distinct field types (or an unit type like `Option::None`).
+///
+/// This operation is somehow not trivial to write in Rust (See the following sample generated code).
+/// `#[derive(GetOrInsert)]` macro provides an implementation for enums
+/// with every variant having a single distinct field types (or an unit type like `Option::None`).
 ///
 /// # Example
 /// If you write an enum like this:
@@ -65,6 +68,12 @@ pub use ::derive_insert_impl::GetOrInsert;
 ///
 /// // Foo::AnEmptyVariant is skipped because it's an unit variant
 /// ```
+///
+/// # Limitations
+///
+/// Currently, this derive macro only supports the enum variants which are:
+///  - tuple-like, single field (`e.g. Option::Some(T)`),
+///  - or unit variants (`e.g. Option::None`).
 pub trait GetOrInsert<T> {
     // Required methods
     fn insert(&mut self, value: T) -> &mut T;
