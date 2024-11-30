@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+derive-insert-impl = { path = "impl" }
 
 [workspace]
 members = ["impl"]

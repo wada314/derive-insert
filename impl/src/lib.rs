@@ -92,7 +92,7 @@ impl VariantData {
         let enum_ident = &self.enum_ident;
         let first_field = &self.first_unnamed_field;
         quote! {
-            impl ::get_or_insert::GetOrInsert<#first_field> for #enum_ident {
+            impl ::derive_insert::GetOrInsert<#first_field> for #enum_ident {
                 fn insert(&mut self, value: T) -> &mut T {
                     *self = #enum_ident::#ident(value);
                     match self {

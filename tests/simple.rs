@@ -12,21 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub use ::derive_insert_impl::GetOrInsert;
+use ::derive_insert::GetOrInsert;
 
-pub trait GetOrInsert<T> {
-    // Required methods
-    fn insert(&mut self, value: T) -> &mut T;
-    fn get_or_insert_with<F: FnOnce() -> T>(&mut self, f: F) -> &mut T;
-
-    // Provided methods
-    fn get_or_insert(&mut self, value: T) -> &mut T {
-        self.get_or_insert_with(|| value)
-    }
-    fn get_or_insert_default(&mut self) -> &mut T
-    where
-        T: Default,
-    {
-        self.get_or_insert_with(Default::default)
-    }
+#[derive(GetOrInsert)]
+enum Foo {
+    Bar1(i32),
+    Bar2(String),
 }

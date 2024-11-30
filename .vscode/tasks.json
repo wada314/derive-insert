@@ -39,7 +39,8 @@
                 "clear": true
             },
             "env": {
-                "RUST_BACKTRACE": "1"
+                "RUST_BACKTRACE": "1",
+                "RUSTFLAGS": "-Z macro-backtrace"
             },
             "group": "test",
             "label": "rust: cargo test"
